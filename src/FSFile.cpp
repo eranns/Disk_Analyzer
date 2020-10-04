@@ -13,23 +13,49 @@ void FSFile::update_size(uintmax_t size){
         _parent->update_size(size);
 }
 
-std::string FSFile::getName() {
+std::string FSFile::getName() const{
     return _name;
 }
-uintmax_t FSFile::getSize() {
+uintmax_t FSFile::getSize()const {
     return _size;
 }
-std::vector<FSFile*> FSFile::getChildren() {
+
+char FSFile::getType() const {
+    return _type;
+}
+std::vector<FSFile*> FSFile::getChildren() const {
     return _children;
 }
-std::ostream& operator<<(std::ostream& os,const FSFile& file){
+double FSFile::size_conversion(std::string& measure)const{
+    double size;
+    if(_size>1000000000){
+        measure="GB";
+        size=static_cast<double>(_size)/(1024*1024*1024);
+    }
+    else if(_size>1000000){
+        measure="MB";
+        size=static_cast<double>(_size)/(1024*1024);
+    }
+    else{
+        measure="B";
+        size=_size;
+    }
+    return size;
+
+}
+std::ostream& operator<<(std::ostream& os, const FSFile& file ){
     std::stringstream sstr;
-    sstr << file._name<<'\t'<<file._size<<std::endl;
-    for(FSFile *f:file._children){
-        sstr<<'\t'<<f->getName()<<'\t'<<f->getSize()<<std::endl;
+    std::string measure="B";
+
+    sstr << file.getName()<<'\t'<<file.size_conversion(measure)<<" "<<measure<<std::endl;
+
+
+    for(FSFile *f:file.getChildren()){
+
+        sstr<<f->getType()<<'\t'<<f->getName()<<'\t'<<f->size_conversion(measure)<<" "<<measure<<std::endl;
     }
     std::string out=sstr.str();
-    return os << out <<"\t"<<file._size;
+    return os << out <<"\t"<<std::endl;
 
 }
 bool FSFile::comparePtrToFile(FSFile *a, FSFile *b) {

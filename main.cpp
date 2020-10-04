@@ -40,7 +40,7 @@ int main() {
                     {"default",input_options::def}
             };
     bool quit_program=false;
-    FSthreadpool t("/Users/erans/Downloads");
+    FSthreadpool t("/");
     auto start = std::chrono::high_resolution_clock::now();
     t.start();
     auto stop = std::chrono::high_resolution_clock::now();
