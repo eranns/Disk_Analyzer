@@ -23,9 +23,10 @@ I also defined paths in private areas of the disks to avoid because of SIP integ
 After the hard disk scan is done you will have the option to navigate from the root folder and see the sizes of every folder and file in the current directory.
  
 ### **commands**
-* `:b` - back to the previous directory
-* `:c` - clear screen
-* `:q` - quit program
+* `:b` - go back to the previous directory
+* `:c` - clear the screen
+* `:q` - quit the program
+* `:p` - print contents of the folder
 * `name of folder` - change directory
 
 
