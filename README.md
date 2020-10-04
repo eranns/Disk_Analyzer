@@ -7,11 +7,22 @@ so I decided to write my own tool and while it's CLI and only in the beginning i
 
 
 ## Getting Started
-A make file with instruction will be posted in the repository in the upcoming days
+### How to run
+1.download / clone the repository and unzip
+
+2.cd to /cmake-build-debug/ and run `make
+
+3. * launch the program with sudo *
+
+#### Regarding sudo launch
+as mac os very restrictive about permissions and also implemented SIP protection on the hard drive this can cause the application to fail. please make sure to run with super user to avoid any errors. 
+
+I also defined paths in private areas of the disks to avoid because of SIP integration.
+
 
 After the hard disk scan is done you will have the option to navigate from the root folder and see the sizes of every folder and file in the current directory.
  
-**commands**
+### **commands**
 * `:b` - back to the previous directory
 * `:c` - clear screen
 * `:q` - quit program
