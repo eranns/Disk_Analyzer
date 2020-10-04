@@ -1,12 +1,12 @@
 #include "FSthreadpool.h"
 
 
-
+//thread pool functions
 void FSthreadpool::start() {
         std::thread t1([&]{
             producer();
             _fin=true;
-            std::this_thread::sleep_for(std::chrono::seconds(5));
+            std::this_thread::sleep_for(std::chrono::seconds(10));
             shutdown();
 
 
@@ -155,8 +155,11 @@ void FSthreadpool::q_push(pathTask task) {
 bool FSthreadpool::q_pop(pathTask & task) {
     std::unique_lock<std::mutex> lock (_tasks_m);
     _tasks_cond.wait(lock,[this]{return !q_empty_no_lock() || _fin;});
-    task = _tasks.front();
-    _tasks.pop();
+    if(!q_empty_no_lock()){
+        task = _tasks.front();
+        _tasks.pop();
+    }
+
 
 }
 

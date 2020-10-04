@@ -18,6 +18,11 @@ private:
     static bool comparePtrToFile(FSFile *a, FSFile *b);
 public:
     FSFile(std::string name, uintmax_t size, FSFile* parent,char type) : _name(name) , _size(size) , _parent(parent),_type(type){};
+    ~FSFile(){
+        for(FSFile* f: _children){
+            delete(f);
+        }
+    }
     void add_children(FSFile*);
     void update_size(uintmax_t);
     std::string getName();
