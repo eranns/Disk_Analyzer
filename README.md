@@ -12,7 +12,7 @@ so I decided to write my own tool and while it's CLI and only in the beginning i
 
 2.cd to /cmake-build-debug/ and run `make
 
-3. * launch the program with sudo *
+3. **launch the program with sudo**
 
 #### Regarding sudo launch
 as mac os very restrictive about permissions and also implemented SIP protection on the hard drive this can cause the application to fail. please make sure to run with super user to avoid any errors. 
