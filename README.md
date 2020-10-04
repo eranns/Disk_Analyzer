@@ -26,7 +26,7 @@ After the hard disk scan is done you will have the option to navigate from the r
 * `:b` - back to the previous directory
 * `:c` - clear screen
 * `:q` - quit program
-* `name of folder` - get into a folder
+* `name of folder` - change directory
 
 
 ### Examples
