@@ -4,9 +4,8 @@ Disk Analyzer is a command line disk usage utility for mac OS.
 Since the upgrade to mac OS 10.15.6 most APIs have changed and software like Disk Inventory X is not working anymore 
 so I decided to write my own tool and while it's CLI and only in the beginning it works quite well and scan faster than all of the software I worked with.
 
-
-
 ## Getting Started
+
 ### How to run
 1.download / clone the repository and unzip
 
@@ -30,7 +29,9 @@ After the hard disk scan is done you will have the option to navigate from the r
 * `name of folder` - change directory
 
 
-### Examples
+## Demo : 
+
+* [Streamble Video](https://streamable.com/nlm7u8) 
 
 
 
