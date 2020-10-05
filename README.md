@@ -14,7 +14,7 @@ so I decided to write my own tool and while it's CLI and only in the beginning i
 3. **launch the program with sudo**
 
 #### Regarding sudo launch
-as mac os very restrictive about permissions and also implemented SIP protection on the hard drive this can cause the application to fail. please make sure to run with super user to avoid any errors. 
+As mac OS is very restrictive about permissions and also implemented [SIP Protection](https://support.apple.com/en-us/HT204899)  on the hard drive this can cause the application to fail. please make sure to run with super user to avoid any errors. 
 
 I also defined paths in private areas of the disks to avoid because of SIP integration.
 
