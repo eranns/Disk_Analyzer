@@ -2,9 +2,6 @@ cmake_minimum_required(VERSION 3.17)
 project(Disk_Analyzer)
 
 set(CMAKE_CXX_STANDARD 17)
-include_directories(/usr/local/opt/ncurses/include)
-
-link_directories(/usr/local/opt/ncurses/lib)
 
 add_executable(Disk_Analyzer src/main.cpp src/FSFile.cpp src/FSFile.h src/FSthreadpool.cpp src/FSthreadpool.h src/FSTask.h)
 target_link_libraries(Disk_Analyzer menu ncurses)
