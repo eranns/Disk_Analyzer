@@ -1,5 +1,9 @@
 #include "FSFile.h"
 
+
+FSFile::FSFile(std::string name, uintmax_t size, FSFile *parent, char type) : _name(name) , _size(size) , _parent(parent),_type(type){};
+
+
 void FSFile::add_children(FSFile *f) {
     std::lock_guard lock(_mutex);
     if(f!=nullptr){
@@ -26,14 +30,21 @@ char FSFile::getType() const {
 std::vector<FSFile*> FSFile::getChildren() const {
     return _children;
 }
+std::vector<std::string> FSFile::getChildrenAsString() const{
+    std::vector<std::string> res;
+    for(int i=0;i<_children.size();i++){
+        res.push_back(_children[i]->getName());
+    }
+    return res;
+}
 double FSFile::size_conversion(std::string& measure)const{
     double size;
     if(_size>1000000000){
-        measure="GB";
+        measure="GiB";
         size=static_cast<double>(_size)/(1024*1024*1024);
     }
     else if(_size>1000000){
-        measure="MB";
+        measure="MiB";
         size=static_cast<double>(_size)/(1024*1024);
     }
     else{
@@ -70,5 +81,15 @@ bool FSFile::operator>(const FSFile &f) const {
 
 FSFile * FSFile::getParent() {
     return _parent;
+}
+char FSFile::getType() {
+    return _type;
+}
+
+
+FSFile::~FSFile(){
+    for(FSFile* f: _children){
+        delete(f);
+    }
 }
 

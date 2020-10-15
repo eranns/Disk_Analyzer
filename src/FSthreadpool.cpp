@@ -1,15 +1,24 @@
 #include "FSthreadpool.h"
 
 
-//thread pool functions
+
+FSthreadpool::FSthreadpool(std::string path) {
+    _pool.reserve(_size);
+    _startPath=fs::path(path);
+    init_ignorePaths();
+    _startFile = new FSFile(_startPath.filename().string(),0,nullptr,'d');
+}
+FSthreadpool::~FSthreadpool() {
+    delete(_startFile);
+}
+
+//pool related functions
 void FSthreadpool::start() {
         std::thread t1([&]{
             producer();
             _fin=true;
             std::this_thread::sleep_for(std::chrono::seconds(10));
             shutdown();
-
-
         });
         std::thread t2([&]{
             consumer();
@@ -21,6 +30,7 @@ void FSthreadpool::start() {
 void FSthreadpool::shutdown(){
     _tasks_cond.notify_all();
     _startFile->sort_children();
+    _directories.erase(_directories.begin(),_directories.end());
 }
 
 /*
@@ -46,7 +56,7 @@ void FSthreadpool::producer() {
         if (fs::is_directory(_startPath)) { //validating input
             std::string name = _startPath.filename().string();
             FSFile *rootpath = _startFile;
-            m_insert(_startPath.filename().string(), rootpath); //inserting to directories map
+            m_insert(_startPath, rootpath); //inserting to directories map
             fs::directory_options opt = fs::directory_options::pop_on_error;
             boost::system::error_code ec;
 
@@ -59,10 +69,9 @@ void FSthreadpool::producer() {
                     else if(fs::is_directory(entry.path())){
                         FSFile *f = new FSFile(entry.path().filename().string(),0,rootpath,'d');
                         rootpath->add_children(f);
-                        m_insert(entry.path().filename().string(),f);
+                        m_insert(entry.path(),f);
                         std::cout<<"Scanning "<<entry.path()<<std::endl;
                         producer_helper(entry.path());
-                        f->sort_children();
                     }
 
                 }
@@ -90,9 +99,9 @@ for(auto& entry: fs::directory_iterator(path,fs::directory_options::pop_on_error
         if(_ignore_paths.find(entry.path()) != _ignore_paths.end()){
             continue;
         }
-        FSFile *parent = m_find(entry.path().parent_path().filename().string());
+        FSFile *parent = m_find(entry.path().parent_path());
         FSFile *f = new FSFile(entry.path().filename().string(),0,parent,'d');
-        m_insert(entry.path().filename().string(),f);
+        m_insert(entry.path(),f);
         if(parent!=nullptr && parent->getName().at(0)!='.'){
             parent->add_children(f);
             producer_helper(entry.path());
@@ -136,7 +145,7 @@ void::FSthreadpool::consumerTask(){
         pathTask task;
         q_pop(task);
         if (task.getTask() != "") {
-            FSFile *parent = m_find(task.getTask().parent_path().filename().string());
+            FSFile *parent = m_find(task.getTask().parent_path());
             if (parent != nullptr) {
                 parent->add_children(
                         new FSFile(task.getTask().filename().string(), fs::file_size(task.getTask()), parent, 'f'));
@@ -174,7 +183,7 @@ bool FSthreadpool::q_empty_no_lock() {
 
 /////// map functions
 
-FSFile* FSthreadpool::m_find(const std::string key) {
+FSFile* FSthreadpool::m_find(fs::path key) {
     std::lock_guard lck(_directories_m);
     auto pos = _directories.find(key);
     if (pos == _directories.end()) {
@@ -184,13 +193,24 @@ FSFile* FSthreadpool::m_find(const std::string key) {
         return res;
     }
 }
-void FSthreadpool::m_insert(std::string key,FSFile* val) {
+void FSthreadpool::m_insert(fs::path key,FSFile* val) {
     std::lock_guard lock(_directories_m);
     _directories[key]=val;
 
 
 }
 
-FSFile *FSthreadpool::startFile() {
+
+ FSFile *FSthreadpool::getrootFile() {
     return _startFile;
 }
+
+void FSthreadpool::sortFileTree(FSFile* path){
+    for(FSFile* f:_startFile->getChildren()){
+        if(f->getType()=='d'){
+            sortFileTree(f);
+        }
+    }
+    path->sort_children();
+}
+

@@ -47,6 +47,7 @@
 					<Add option="-DBOOST_ALL_NO_LIB"/>
 					<Add option="-DBOOST_FILESYSTEM_DYN_LINK"/>
 					<Add option="-DBOOST_SYSTEM_DYN_LINK"/>
+					<Add directory="/usr/local/opt/ncurses/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
@@ -71,6 +72,7 @@
 					<Add option="-DBOOST_ALL_NO_LIB"/>
 					<Add option="-DBOOST_FILESYSTEM_DYN_LINK"/>
 					<Add option="-DBOOST_SYSTEM_DYN_LINK"/>
+					<Add directory="/usr/local/opt/ncurses/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
