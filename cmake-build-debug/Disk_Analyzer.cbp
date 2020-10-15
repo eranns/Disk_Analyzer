@@ -88,9 +88,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/erans/CLionProjects/Disk_Analyzer/main.cpp">
-			<Option target="Disk_Analyzer"/>
-		</Unit>
 		<Unit filename="/Users/erans/CLionProjects/Disk_Analyzer/src/FSFile.cpp">
 			<Option target="Disk_Analyzer"/>
 		</Unit>
@@ -104,6 +101,9 @@
 			<Option target="Disk_Analyzer"/>
 		</Unit>
 		<Unit filename="/Users/erans/CLionProjects/Disk_Analyzer/src/FSthreadpool.h">
+			<Option target="Disk_Analyzer"/>
+		</Unit>
+		<Unit filename="/Users/erans/CLionProjects/Disk_Analyzer/src/main.cpp">
 			<Option target="Disk_Analyzer"/>
 		</Unit>
 		<Unit filename="/Users/erans/CLionProjects/Disk_Analyzer/CMakeLists.txt">

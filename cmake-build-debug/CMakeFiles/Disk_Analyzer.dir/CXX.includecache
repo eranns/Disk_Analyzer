@@ -6,16 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/erans/CLionProjects/Disk_Analyzer/main.cpp
-iostream
--
-src/FSthreadpool.h
-/Users/erans/CLionProjects/Disk_Analyzer/src/FSthreadpool.h
-map
--
-chrono
--
-
 /Users/erans/CLionProjects/Disk_Analyzer/src/FSFile.h
 string
 -
@@ -52,6 +42,16 @@ FSTask.h
 FSFile.h
 /Users/erans/CLionProjects/Disk_Analyzer/src/FSFile.h
 set
+-
+
+/Users/erans/CLionProjects/Disk_Analyzer/src/main.cpp
+iostream
+-
+FSthreadpool.h
+/Users/erans/CLionProjects/Disk_Analyzer/src/FSthreadpool.h
+map
+-
+chrono
 -
 
 /usr/local/include/boost/assert.hpp

@@ -77,18 +77,18 @@ include CMakeFiles/Disk_Analyzer.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Disk_Analyzer.dir/flags.make
 
-CMakeFiles/Disk_Analyzer.dir/main.cpp.o: CMakeFiles/Disk_Analyzer.dir/flags.make
-CMakeFiles/Disk_Analyzer.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/erans/CLionProjects/Disk_Analyzer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Disk_Analyzer.dir/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Disk_Analyzer.dir/main.cpp.o -c /Users/erans/CLionProjects/Disk_Analyzer/main.cpp
+CMakeFiles/Disk_Analyzer.dir/src/main.cpp.o: CMakeFiles/Disk_Analyzer.dir/flags.make
+CMakeFiles/Disk_Analyzer.dir/src/main.cpp.o: ../src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/erans/CLionProjects/Disk_Analyzer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Disk_Analyzer.dir/src/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Disk_Analyzer.dir/src/main.cpp.o -c /Users/erans/CLionProjects/Disk_Analyzer/src/main.cpp
 
-CMakeFiles/Disk_Analyzer.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Disk_Analyzer.dir/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/erans/CLionProjects/Disk_Analyzer/main.cpp > CMakeFiles/Disk_Analyzer.dir/main.cpp.i
+CMakeFiles/Disk_Analyzer.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Disk_Analyzer.dir/src/main.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/erans/CLionProjects/Disk_Analyzer/src/main.cpp > CMakeFiles/Disk_Analyzer.dir/src/main.cpp.i
 
-CMakeFiles/Disk_Analyzer.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Disk_Analyzer.dir/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/erans/CLionProjects/Disk_Analyzer/main.cpp -o CMakeFiles/Disk_Analyzer.dir/main.cpp.s
+CMakeFiles/Disk_Analyzer.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Disk_Analyzer.dir/src/main.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/erans/CLionProjects/Disk_Analyzer/src/main.cpp -o CMakeFiles/Disk_Analyzer.dir/src/main.cpp.s
 
 CMakeFiles/Disk_Analyzer.dir/src/FSFile.cpp.o: CMakeFiles/Disk_Analyzer.dir/flags.make
 CMakeFiles/Disk_Analyzer.dir/src/FSFile.cpp.o: ../src/FSFile.cpp
@@ -118,14 +118,14 @@ CMakeFiles/Disk_Analyzer.dir/src/FSthreadpool.cpp.s: cmake_force
 
 # Object files for target Disk_Analyzer
 Disk_Analyzer_OBJECTS = \
-"CMakeFiles/Disk_Analyzer.dir/main.cpp.o" \
+"CMakeFiles/Disk_Analyzer.dir/src/main.cpp.o" \
 "CMakeFiles/Disk_Analyzer.dir/src/FSFile.cpp.o" \
 "CMakeFiles/Disk_Analyzer.dir/src/FSthreadpool.cpp.o"
 
 # External object files for target Disk_Analyzer
 Disk_Analyzer_EXTERNAL_OBJECTS =
 
-Disk_Analyzer: CMakeFiles/Disk_Analyzer.dir/main.cpp.o
+Disk_Analyzer: CMakeFiles/Disk_Analyzer.dir/src/main.cpp.o
 Disk_Analyzer: CMakeFiles/Disk_Analyzer.dir/src/FSFile.cpp.o
 Disk_Analyzer: CMakeFiles/Disk_Analyzer.dir/src/FSthreadpool.cpp.o
 Disk_Analyzer: CMakeFiles/Disk_Analyzer.dir/build.make

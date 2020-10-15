@@ -1,5 +1,5 @@
 #include <iostream>
-#include "src/FSthreadpool.h"
+#include "FSthreadpool.h"
 #include <map>
 #include <chrono>
 
@@ -42,7 +42,7 @@ int main() {
                     {"default",input_options::def}
             };
     bool quit_program=false;
-    FSthreadpool* t=new FSthreadpool("/Users/erans/Downloads");
+    FSthreadpool* t=new FSthreadpool("/");
     auto start = std::chrono::high_resolution_clock::now();
     t->start();
     auto stop = std::chrono::high_resolution_clock::now();
