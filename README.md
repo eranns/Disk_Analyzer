@@ -4,21 +4,34 @@ Disk Analyzer is a command line disk usage utility for mac OS.
 Since the upgrade to mac OS 10.15.6 most APIs have changed and software like Disk Inventory X is not working anymore 
 so I decided to write my own tool and while it's CLI and only in the beginning it works quite well and scan faster than all of the software I worked with.
 
-
-
 ## Getting Started
-A make file with instruction will be posted in the repository in the upcoming days
+
+### How to run
+1.download / clone the repository and unzip
+
+2.cd to /cmake-build-debug/ and run `make
+
+3. **launch the program with sudo**
+
+#### Regarding sudo launch
+As mac OS is very restrictive about permissions and also implemented [SIP Protection](https://support.apple.com/en-us/HT204899)  on the hard drive this can cause the application to fail. please make sure to run with super user to avoid any errors. 
+
+I also defined paths in private areas of the disks to avoid because of SIP integration.
+
 
 After the hard disk scan is done you will have the option to navigate from the root folder and see the sizes of every folder and file in the current directory.
  
-**commands**
-* `:b` - back to the previous directory
-* `:c` - clear screen
-* `:q` - quit program
-* `name of folder` - get into a folder
+### **commands**
+* `:b` - go back to the previous directory
+* `:c` - clear the screen
+* `:q` - quit the program
+* `:p` - print contents of the folder
+* `name of folder` - change directory
 
 
-### Examples
+## Demo : 
+
+* [Streamble Video](https://streamable.com/nlm7u8) 
 
 
 
