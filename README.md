@@ -31,7 +31,7 @@ After the hard disk scan is done you will have the option to navigate from the r
 
 ## Demo : 
 
-* [Streamble Video](https://streamable.com/nlm7u8) 
+* [Demo thanks to asciinema.org](https://asciinema.org/a/PrABRQdM2En5MTqUHUSsByFjN) 
 
 
 
